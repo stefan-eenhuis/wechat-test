@@ -1,13 +1,14 @@
 import { WechatyBuilder } from 'wechaty';
+import qrcode from 'qrcode-terminal'; // ⬅️ das ist der Fix!
 
 const bot = WechatyBuilder.build({
   name: 'my-bot',
-puppet: 'wechaty-puppet-wechat4u',
+  puppet: 'wechaty-puppet-wechat4u',
 });
 
-bot.on('scan', (qrcode) => {
-  console.log('Scan QR Code to login: ');
-  require('qrcode-terminal').generate(qrcode, { small: true });
+bot.on('scan', (qrcodeText) => {
+  console.log('📱 Scan this QR code in your WeChat app:');
+  qrcode.generate(qrcodeText, { small: true });
 });
 
 bot.on('login', user => console.log(`✅ Logged in as ${user}`));
