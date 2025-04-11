@@ -2,7 +2,7 @@ import { WechatyBuilder } from 'wechaty';
 
 const bot = WechatyBuilder.build({
   name: 'my-bot',
-  puppet: 'wechaty-puppet-wechat',
+puppet: 'wechaty-puppet-wechat4u',
 });
 
 bot.on('scan', (qrcode) => {
